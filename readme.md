@@ -19,3 +19,72 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+
+
+listings
+ip addresses
+events/when things got listed
+
+add ip
+delist-ip
+
+
+
+
+CREATE TABLE IF NOT EXISTS `bad_ips` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ip` varchar(15) COLLATE utf8_bin NOT NULL,
+  `port` int(5) NOT NULL DEFAULT '0',
+  `type` int(3) NOT NULL DEFAULT '4',
+  `reason` varchar(3000) COLLATE utf8_bin NOT NULL DEFAULT 'This IP address is listed in IncrediBL. For more information and removal, please visit https://www.incredibl.org/lookup.php',
+  `date_added` int(20) NOT NULL,
+  `user` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=9 ;
+
+
+
+
+
+
+
+
+
+
+--
+-- Dumping data for table `types`
+--
+
+INSERT INTO `types` (`id`, `name`, `dataset`) VALUES
+(1, 'Test Data', 'test'),
+(2, 'Experimental', 'experimental'),
+(3, 'Unknown', 'unknown'),
+(4, 'IRC Drone', 'irc'),
+(5, 'TOR Exit Node', 'tor'),
+(6, 'Open SOCKS Proxy', 'socks');
+
+
+
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) COLLATE utf8_bin NOT NULL,
+  `email` varchar(50) COLLATE utf8_bin NOT NULL,
+  `password` varchar(32) COLLATE utf8_bin NOT NULL,
+  `salt` varchar(5) COLLATE utf8_bin NOT NULL,
+  `date_created` int(20) NOT NULL,
+  `last_activity` int(20) NOT NULL,
+  `last_ip` varchar(39) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
+
+
+
+whitelist
+
+
+
+
+IPs belong to a zone
+Entries belong to an IP address

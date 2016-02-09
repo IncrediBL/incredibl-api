@@ -14,3 +14,15 @@
 $app->get('/', function () use ($app) {
     return $app->version();
 });
+
+
+$app->get('/zones', 'ZoneController@index');
+$app->post('/zones', 'ZoneController@create');
+$app->get('/zones/{id}', 'ZoneController@show');
+$app->delete('/zones/{id}', 'ZoneController@destroy');
+
+
+$app->get('/pastes', 'PasteController@index');
+$app->post('/pastes', 'PasteController@create');
+$app->get('/pastes/{id}', 'PasteController@show');
+$app->delete('/pastes/{id}', 'PasteController@destroy');
