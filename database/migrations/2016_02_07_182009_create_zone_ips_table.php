@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIpsTable extends Migration
+class CreateZoneIpsTable extends Migration
 {
     /**
      * Run the migrations.
